@@ -78,13 +78,43 @@
         background-color: rgb(141, 190, 141);
         border-radius: 5px;
     }
+    .botonanadir:hover {
+        box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.3);
+    }
     main {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding: 20px;
     }
-
+    @media (max-width: 508px) {
+        main {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    #carrito {
+        box-shadow: 5px 8px 26px black;
+        background-color: rgb(198, 216, 199);
+        max-width: 100%;
+    }
+    #boton-compra{
+        padding: 5px;
+        background-color: rgb(141, 190, 141);
+        border-radius: 5px;
+    }
+    #boton-compra:hover {
+        box-shadow: 5px 8px 26px black;
+    }
+    #boton-volver {
+        padding: 5px;
+        border-radius: 5px;
+        float: right;
+        background-color: dimgray;
+    }
+    #boton-volver:hover {
+        box-shadow: 5px 8px 26px black;
+    }
 </style>
 
 <body>
@@ -132,8 +162,19 @@
         </div>
 
     </main>
-    <footer>
-
-    </footer>
+    
+    <div id="carrito">
+        <fieldset>
+            <h2>Carrito de compra</h2>
+            <ul id="cosas"></ul>
+            <p id="total">Total: €<span id="precio-total">0</span></p>
+            <button id="boton-compra" onclick="ensenarform()">Realizar compra</button>
+        </fieldset>
+    </div>
+    <br>
+    <a href="mercadona.html">
+        <button id="boton-volver">Volver</button>
+    </a>
+    
 </body>
 </html>
