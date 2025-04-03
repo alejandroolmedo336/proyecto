@@ -19,20 +19,20 @@
 }
 header {
     background-color: rgb(205, 243, 168);
-    height: 130px;
+    height: 190px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #fotomerca {
-    height: 90px;
+    height: 100px;
 }
 nav {
     background-color: rgb(194, 236, 182);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 60px;
+    height: 110px;
 }
 .anav {
     text-decoration: none;
@@ -57,6 +57,41 @@ footer {
     background-color: rgb(198, 216, 199);
     display: flex;
     justify-content: space-evenly;
+}
+#telefono {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#tlf {
+    height: 30px;
+    padding: 5px;
+}
+#correo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#crro {
+    height: 30px;
+    padding: 5px;
+}
+#redes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#ins {
+    height: 30px;
+    padding: 5px;
+}
+#twi {
+    height: 30px;
+    padding: 5px;
+}
+#fcb {
+    height: 30px;
+    padding: 5px;
 }
 @media (max-width: 768px) {
     nav {
@@ -95,8 +130,25 @@ footer {
         <img src="https://s1.ppllstatics.com/elcomercio/www/multimedia/2025/03/16/mercadona-tiendas8-kqPF--1920x1080@El%20Comercio.jpg" alt="..." id="foto2">
     </section>
     <footer>
-        <p id="telefono"><strong>Teléfono de contacto</strong> 123456789</p>
-        <p id="correo"><strong>Correo </strong> mercadona@mercadona.com</p>
+        <div id="telefono">
+            <img src="https://cdn-icons-png.flaticon.com/128/7524/7524766.png" alt="..." id="tlf">
+            <p id="telefono">123456789</p>
+        </div>
+        <div id="correo">
+            <img src="https://cdn-icons-png.flaticon.com/128/4314/4314565.png" alt="..." id="crro">
+            <p id="correo">mercadona@mercadona.com</p>
+        </div>
+        <div id="redes">
+            <a href="https://www.instagram.com/mercadona/">
+                <img src="https://cdn-icons-png.flaticon.com/128/3670/3670274.png" alt="..." id="ins">
+            </a>
+            <a href="https://x.com/mercadona">
+                <img src="https://cdn-icons-png.flaticon.com/128/25/25347.png" alt="..." id="twi">
+            </a>
+            <a href="https://www.facebook.com/mercadona">
+                <img src="https://cdn-icons-png.flaticon.com/128/1384/1384005.png" alt="..." id="fcb">
+            </a>
+        </div>
     </footer>
 </body>
 </html>
