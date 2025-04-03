@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    .titulo {
+        color: rgb(45, 165, 21);
+        font-family: "Gravitas One", serif;
+        padding: 28px;
+    }
+    header {
+        background-color: rgb(194, 236, 182 );
+        height: 190px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #fotomerca {
+        height: 100px;
+        border-radius: 15px;
+    }
+
+    #producto1 {
+        background-color: rgb(198, 216, 199);
+        width: 22%;
+    }
+    #producto1:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+    }
+    #producto2 {
+        background-color: rgb(198, 216, 199);
+        width: 22%;
+    }
+    #producto2:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+    }
+    #producto3 {
+        background-color: rgb(198, 216, 199);
+        width: 22%;
+    }
+    #producto3:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+    }
+    #producto4 {
+        background-color: rgb(198, 216, 199);
+        width: 22%;
+    }
+    #producto4:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+    }
+    #foto1 {
+        width: 100%;
+    }
+    #foto2 {
+        width: 100%;
+    }
+    #foto3 {
+        width: 100%;
+    }
+    #foto4 {
+        width: 100%;
+    }
+    #container {
+        padding: 2px 16px;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .botonanadir {
+        padding: 5px;
+        background-color: rgb(141, 190, 141);
+        border-radius: 5px;
+    }
+    main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+</style>
+
+<body>
+    <header>
+        <img src="https://yt3.googleusercontent.com/ZrOQvWBGq2XrPuAzhwJp-UNjAEsHlfCBPN-8QCzsY9zjPrXRWW0IS4D6wK6KiP1SIGU6_2wqnw=s900-c-k-c0x00ffffff-no-rj" alt="..." id="fotomerca">
+        <h1 class="titulo">Productos</h1>
+    </header>
+
+    <main>
+
+       <div id="producto1">
+            <img src="https://viviendosanos.com/wp-content/uploads/2022/07/pizza-masa-fina-4-quesos-hacendado-mercadona-600x604.png" alt="..." id="foto1">
+            <div id="container">
+                <h3>Pizza 4 quesos</h3>
+                <p class="precio1">2,99 €</p>
+                <button onclick="anadircarrito('producto1', 2.99 )" class="botonanadir"><strong>Añadir</strong></button>
+            </div>
+        </div>
+
+        <div id="producto2">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/queso-rallado-sin-lactosa-mercadona-1638270862.png" alt="..." id="foto2">
+            <div id="container">
+                <h3>Queso rayado sin lactosa</h3>             
+                <p class="precio2">3,49 €</p>               
+                <button onclick="anadircarrito('producto2', 3.49 )" class="botonanadir"><strong>Añadir</strong></button>
+            </div>
+        </div>
+
+        <div id="producto3">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/cereales-cacao-sin-gluten-mercadona-1645361178.png?crop=1xw:1xh;center,top&resize=980:*" alt="..." id="foto3">
+            <div id="container">
+                <h3>Cereales sin gluten</h3>           
+                <p class="precio3">4 €</p>
+                <button onclick="anadircarrito('producto3', 4 )" class="botonanadir"><strong>Añadir</strong></button>
+            </div>
+        </div>
+
+        <div id="producto4">
+            <img src="https://www.65ymas.com/uploads/s1/52/12/11/patatas-fritas-extra-crujientes-mercadona.png" alt="..." id="foto4">
+            <div id="container">
+                <h3>Patatas crunchy 180 g</h3>             
+                <p class="precio4">1,30 €</p>
+                <button onclick="anadircarrito('producto4', 1.30 )" class="botonanadir"><strong>Añadir</strong></button>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
