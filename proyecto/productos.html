@@ -119,6 +119,11 @@
     #boton-volver:hover {
         box-shadow: 5px 8px 26px black;
     }
+    #formulario-compra {
+        display: none; 
+        margin-top: 20px;
+        box-shadow: 5px 8px 26px black;
+    }
 </style>
 
 <body>
@@ -175,10 +180,128 @@
             <button id="boton-compra" onclick="ensenarform()">Realizar compra</button>
         </fieldset>
     </div>
+
+    <div id="formulario-compra">
+
+    </div>
+
     <br>
     <a href="mercadona.html">
         <button id="boton-volver">Volver</button>
     </a>
     
 </body>
+
+<script>
+    let carrito = [];
+    let total = 0;
+
+    // ======================
+    // Restaurar desde LocalStorage
+    // ======================
+    window.onload = function() {
+        const guardado = localStorage.getItem("carrito");
+        const totalGuardado = localStorage.getItem("total");
+
+        if (guardado) {
+            carrito = JSON.parse(guardado);
+            carrito.forEach(producto => {
+                mostrarProductoEnCarrito(producto);
+            });
+        }
+
+        if (totalGuardado) {
+            total = parseFloat(totalGuardado);
+            document.getElementById("precio-total").innerText = total.toFixed(2);
+        }
+    };
+
+    function anadircarrito(productoId, precio) {
+        const productoElemento = document.getElementById(productoId);
+        const nombre = productoElemento.querySelector("h3").innerText;
+
+        const producto = {
+            id: Date.now(),
+            nombre: nombre,
+            precio: precio
+        };
+
+        carrito.push(producto);
+        mostrarProductoEnCarrito(producto);
+        actualizarTotal(precio);
+        guardarEnLocalStorage();
+    }
+
+    function mostrarProductoEnCarrito(producto) {
+        const ul = document.getElementById("cosas");
+        const li = document.createElement("li");
+        li.setAttribute("data-id", producto.id);
+        li.innerHTML = `${producto.nombre} - €${producto.precio.toFixed(2)} 
+            <button onclick="eliminarProducto(${producto.id}, ${producto.precio})" style="margin-left: 10px; color: red;">Eliminar</button>`;
+        ul.appendChild(li);
+    }
+
+    function eliminarProducto(id, precio) {
+        const item = document.querySelector(`li[data-id='${id}']`);
+        if (item) item.remove();
+
+        carrito = carrito.filter(prod => prod.id !== id);
+        actualizarTotal(-precio);
+        guardarEnLocalStorage();
+    }
+
+    function actualizarTotal(cambio) {
+        total += cambio;
+        document.getElementById("precio-total").innerText = total.toFixed(2);
+    }
+
+    function guardarEnLocalStorage() {
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        localStorage.setItem("total", total.toFixed(2));
+    }
+
+    function ensenarform() {
+        const formDiv = document.getElementById("formulario-compra");
+    formDiv.style.display = "block";
+
+    formDiv.innerHTML = 
+        `<fieldset>
+            <legend><strong>Formulario de compra</strong></legend>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+
+            <label for="apellido">Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido" required><br><br>
+
+            <label for="dni">DNI:</label><br>
+            <input type="text" id="dni" name="dni" required><br><br>
+
+            <label for="pago">Forma de pago:</label><br>
+            <select id="pago" name="pago" required>
+                <option value="">Selecciona una opción</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="paypal">PayPal</option>
+                <option value="bizum">Bizum</option>
+                <option value="reembolso">Reembolso</option>
+            </select><br><br>
+
+            <button onclick="finalizarCompra()">Finalizar compra</button>
+        </fieldset>`;
+    }
+
+    function finalizarCompra() {
+        const nombre = document.getElementById("nombre").value;
+        const apellido = document.getElementById("apellido").value;
+        const dni = document.getElementById("dni").value;
+        const pago = document.getElementById("pago").value;
+
+        if (!nombre || !apellido || !dni || !pago) {
+            alert("Por favor, rellena todos los campos.");
+            return;
+        }
+
+        alert(`Gracias por tu compra, ${nombre} ${apellido}. Se ha realizado el pago por ${pago}.`);
+    }
+</script>
+
 </html>
