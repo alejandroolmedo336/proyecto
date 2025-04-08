@@ -214,10 +214,10 @@
     };
 
     function anadircarrito(productoId, precio) {
-        const productoElemento = document.getElementById(productoId);
-        const nombre = productoElemento.querySelector("h3").innerText;
+        let productoElemento = document.getElementById(productoId);
+        let nombre = productoElemento.querySelector("h3").innerText;
 
-        const producto = {
+        let producto = {
             id: Date.now(),
             nombre: nombre,
             precio: precio
@@ -230,8 +230,8 @@
     }
 
     function mostrarProductoEnCarrito(producto) {
-        const ul = document.getElementById("cosas");
-        const li = document.createElement("li");
+        let ul = document.getElementById("cosas");
+        let li = document.createElement("li");
         li.setAttribute("data-id", producto.id);
         li.innerHTML = `${producto.nombre} - €${producto.precio.toFixed(2)} 
             <button onclick="eliminarProducto(${producto.id}, ${producto.precio})" style="margin-left: 10px; color: red;">Eliminar</button>`;
@@ -239,7 +239,7 @@
     }
 
     function eliminarProducto(id, precio) {
-        const item = document.querySelector(`li[data-id='${id}']`);
+        let item = document.querySelector(`li[data-id='${id}']`);
         if (item) item.remove();
 
         carrito = carrito.filter(prod => prod.id !== id);
@@ -258,7 +258,7 @@
     }
 
     function ensenarform() {
-        const formDiv = document.getElementById("formulario-compra");
+        let formDiv = document.getElementById("formulario-compra");
     formDiv.style.display = "block";
 
     formDiv.innerHTML = 
@@ -287,10 +287,10 @@
     }
 
     function finalizarCompra() {
-        const nombre = document.getElementById("nombre").value;
-        const apellido = document.getElementById("apellido").value;
-        const dni = document.getElementById("dni").value;
-        const pago = document.getElementById("pago").value;
+        let nombre = document.getElementById("nombre").value;
+        let apellido = document.getElementById("apellido").value;
+        let dni = document.getElementById("dni").value;
+        let pago = document.getElementById("pago").value;
 
         if (!nombre || !apellido || !dni || !pago) {
             alert("Por favor, rellena todos los campos.");
