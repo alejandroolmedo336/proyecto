@@ -196,12 +196,9 @@
     let carrito = [];
     let total = 0;
 
-    // ======================
-    // Restaurar desde LocalStorage
-    // ======================
     window.onload = function() {
-        const guardado = localStorage.getItem("carrito");
-        const totalGuardado = localStorage.getItem("total");
+        let guardado = localStorage.getItem("carrito");
+        let totalGuardado = localStorage.getItem("total");
 
         if (guardado) {
             carrito = JSON.parse(guardado);
